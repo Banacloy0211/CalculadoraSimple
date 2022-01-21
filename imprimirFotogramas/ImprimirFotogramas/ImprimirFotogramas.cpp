@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;    
 #define CONSOLE_HEIGHT 29
-#define CONSOLE_WIDTH 19
+#define CONSOLE_WIDTH 119
 
 void RellenarMapa();
 void Inputs();
@@ -50,11 +50,25 @@ void RellenarMapa()
             }
         }
     }
-
+    //Teletransporte Horizontal
     ConsoleScreen[2][0] = MAP_TILES::EMPTY;
     ConsoleScreen[3][0] = MAP_TILES::EMPTY;
     ConsoleScreen[2][CONSOLE_WIDTH - 1] = MAP_TILES::EMPTY;
     ConsoleScreen[3][CONSOLE_WIDTH - 1] = MAP_TILES::EMPTY;
+  
+   //Teletransporte Vertical
+    ConsoleScreen[0][15] = MAP_TILES::EMPTY;
+    ConsoleScreen[0][16] = MAP_TILES::EMPTY;
+    ConsoleScreen[0][17] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][15] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][16] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][17] = MAP_TILES::EMPTY;
+    ConsoleScreen[0][95] = MAP_TILES::EMPTY;
+    ConsoleScreen[0][96] = MAP_TILES::EMPTY;
+    ConsoleScreen[0][97] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][95] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][96] = MAP_TILES::EMPTY;
+    ConsoleScreen[CONSOLE_HEIGHT - 1][97] = MAP_TILES::EMPTY;
 }
 
 void Inputs()
@@ -115,6 +129,10 @@ void Logica()
         personaje_x_new = CONSOLE_WIDTH - 1;
     }
     personaje_x_new %= CONSOLE_WIDTH;
+    if (personaje_y_new < 0) {
+        personaje_y_new = CONSOLE_HEIGHT - 1;
+    }
+    personaje_y_new %= CONSOLE_HEIGHT;
     if (ConsoleScreen[personaje_y_new][personaje_x_new] == MAP_TILES::WALL) {
         personaje_y_new = personaje_y;
         personaje_x_new = personaje_x;
