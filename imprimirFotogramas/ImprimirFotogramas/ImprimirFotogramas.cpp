@@ -69,6 +69,7 @@ void RellenarMapa()
     ConsoleScreen[CONSOLE_HEIGHT - 1][95] = MAP_TILES::EMPTY;
     ConsoleScreen[CONSOLE_HEIGHT - 1][96] = MAP_TILES::EMPTY;
     ConsoleScreen[CONSOLE_HEIGHT - 1][97] = MAP_TILES::EMPTY;
+
 }
 
 void Inputs()
